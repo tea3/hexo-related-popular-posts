@@ -6,6 +6,11 @@ A hexo plugin that generates a list of links to related posts and popular posts.
 
 A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API.
 
+- Documents : [read me](https://tea3.github.io/p/hexo-related-popular-posts/)
+
+- DEMO : [My Posts](https://tea3.github.io/p/tea-plantation-mtfuji/) has generated [related posts](https://tea3.github.io/p/tea-plantation-mtfuji/#relatedPosts) like this.
+
+
 ## Installation
 
 ``` bash
@@ -121,6 +126,8 @@ popularPosts:
       expiresDate: 10
 ```
 
+### Environment variable
+
 If you want to use the environment variable. Please set the following.
 
 ``` bash
@@ -128,6 +135,19 @@ $ export GOOGLEAPI_CLIENTID="******.apps.googleusercontent.com"
 $ export GOOGLEAPI_EMAIL="*****@developer.gserviceaccount.com"
 $ export GOOGLEAPI_KEY="/path/to/google-services.pem"
 $ export GOOGLEAPI_ANALYTICS_TABLE="ga:12345678"
+```
+
+``` yaml
+popularPosts:
+  googleAnalyticsAPI:
+    # clientId: ******.apps.googleusercontent.com
+    # serviceEmail: *****@developer.gserviceaccount.com
+    # key: /hexo-project-root/path/to/google-services.pem
+    # viewId: 12345678
+    dateRange: 60
+    cache:
+      path: hexo-related-popular-posts-ga-cached.json
+      expiresDate: 10
 ```
 
 
