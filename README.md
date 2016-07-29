@@ -18,7 +18,7 @@ Add the following helper tag in template file for article.
 
 ``` ejs
   <%-
-    <%- popular_posts() %>
+    popular_posts()
   %>
 ```
 
