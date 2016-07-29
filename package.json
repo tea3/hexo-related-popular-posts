@@ -1,0 +1,43 @@
+{
+  "name": "hexo-related-popular-posts",
+  "version": "0.1.0",
+  "main": "index",
+  "dependencies": {
+    "ga-analytics": "0.0.7",
+    "hexo-fs": "^0.1.6",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.14.1",
+    "object-assign": "^4.1.0"
+  },
+  "description": "A hexo plugin that generates a list of links to related posts and popular posts.",
+  "devDependencies": {
+    "hexo": "^3.0.0-rc.3"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "author": {
+    "email": "tea3gtinfo@gmail.com",
+    "name": "tea3",
+    "url": "https://tea3.github.io/"
+  },
+  "bugs": {
+    "url": "https://github.com/tea3/hexo-related-popular-posts/issues"
+  },
+  "keywords": [
+    "popularPosts",
+    "relatedPosts",
+    "hexo"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "tea3gt",
+      "email": "tea3gtinfo@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tea3/hexo-related-popular-posts.git"
+  }
+}
