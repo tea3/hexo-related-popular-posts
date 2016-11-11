@@ -232,4 +232,5 @@ popularPosts:
 
 MIT
 
-[Hexo]: http://hexo.io/
+- Hexo : [http://hexo.io/](http://hexo.io/)
+- kuromoji.js : [https://github.com/takuyaa/kuromoji.js](https://github.com/takuyaa/kuromoji.js)
