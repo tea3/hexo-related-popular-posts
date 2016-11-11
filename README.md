@@ -1,14 +1,18 @@
 # hexo-related-popular-posts
 
-A hexo plugin that generates a list of links to related posts and popular posts.
+A hexo plugin that generates a list of links to related posts or popular posts.
 
 ## Overview
 
-A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API.
+- Generate related list of posts (tag relevancy & contents relevancy)
+- Generate popular list of posts
 
-- Documents : [read me](https://tea3.github.io/p/hexo-related-popular-posts/)
+A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Also , this plugin can generates a list of links to related posts based on contents.
+
+## DEMO & Documents
 
 - DEMO : [My Posts](https://tea3.github.io/p/tea-plantation-mtfuji/) has generated [related posts](https://tea3.github.io/p/tea-plantation-mtfuji/#relatedPosts) like this.
+- Documents : [read me](https://tea3.github.io/p/hexo-related-popular-posts/) (Japanese)
 
 
 ## Installation
@@ -19,7 +23,9 @@ $ npm install hexo-related-popular-posts --save
 
 ## Usage
 
-Add the following helper tag in template file for article.
+### 1. Edit your theme
+
+First, add the following helper tag in template file for article. Please edit `themes/(your-theme)/layout/_partial/your_template.ejs`.
 
 ``` ejs
   <%-
@@ -27,7 +33,25 @@ Add the following helper tag in template file for article.
   %>
 ```
 
+### 2. Run server
+
+Starts a local server. By default, this is at `http://localhost:4000/`.
+
+``` bash
+$ hexo server
+```
+
+A related article is displayed .
+
+### 3. Customize more settings
+
+This plugin can set the following options. Please see below for the details.
+
+
+
 ## Options of hepler
+
+`popular_posts()` helper can set the following options.
 
 | option | description | default |
 | :--- | :--- | :--- |
@@ -38,7 +62,7 @@ Add the following helper tag in template file for article.
 | isImage| visible the image | `false` |
 | isExcerpt| visible the excerpt | `false` |
 
-## Example
+### Helper's Option Examples
 
 1. Related Articles will generate 5 posts. Also, Image of Articles generate .
 
@@ -56,7 +80,12 @@ Add the following helper tag in template file for article.
   %>
 ```
 
-3. If you want custom html, please use `popular_posts_json` helper.
+### Customize HTML
+
+If you want customize html , please use `popular_posts_json()` helper and make 'htmlGenerator' register . Please edit `themes/(your-theme)/scripts/your_scripts.js`.
+
+
+First , please edit `themes/(your-theme)/layout/_partial/your_template.ejs` .
 
 ``` ejs
 <%-
@@ -66,7 +95,7 @@ Add the following helper tag in template file for article.
 %>
 ```
 
-If you use `popular_posts_json` helper , please add the following helper in template.
+Second , please edit `themes/(your-theme)/scripts/your_scripts.js`
 
 ``` javascript
 // Examples of helper
@@ -76,6 +105,7 @@ hexo.extend.helper.register('htmlGenerator', function(args){
   var returnHTML = "";
   
   function generateHTML(list){
+    
     var ret = "";
     ret += "<li class=\"" + args.class + "-item\">";
     
@@ -121,12 +151,12 @@ popularPosts:
     key: /hexo-project-root/path/to/google-services.pem
     viewId: 12345678
     dateRange: 60
-    cache:
-      path: hexo-related-popular-posts-ga-cached.json
-      expiresDate: 10
+    expiresDate: 10 # (optional) Expiration date of cache file. Default = 30
+    # # This options is Deprecated > v0.1.3
+    # cache:
+    #  path: hexo-related-popular-posts-ga-cached.json
+    #  expiresDate: 10
 ```
-
-### Environment variable
 
 If you want to use the environment variable. Please set the following.
 
@@ -145,11 +175,58 @@ popularPosts:
     # key: /hexo-project-root/path/to/google-services.pem
     # viewId: 12345678
     dateRange: 60
-    cache:
-      path: hexo-related-popular-posts-ga-cached.json
-      expiresDate: 10
+    expiresDate: 10
 ```
 
+
+
+## Advanced Related posts (Morphological Analysis)
+
+This plugin that can generates a list of links to related posts based on content's keywords. 
+
+Support language is as follow. [Please cooperate with support of other languages.](https://github.com/tea3/hexo-related-popular-posts/pulls)
+
+- ja
+- en
+
+If you want to generates a list of links to related posts based on contents , please set the `morphologicalAnalysis` option.
+
+``` yaml
+popularPosts:
+  morphologicalAnalysis: 
+```
+
+More detailed options can be set as follows.
+
+
+``` yaml
+popularPosts:
+  morphologicalAnalysis: 
+    negativeKeywordsList: hexo-rpp-negativewords.txt  # (optional) If you want to exclude the keywords for analytics , set the exclude file..
+    limit: 300              # (optional) If you want to limit the number of keywords for analytics , set the number.
+  weight:                   # (optional)
+    tagRelevancy: 1.0       # (optional) Weight of tag relevancy. Default = 1.0
+    contentsRelevancy: 1.0  # (optional) Weight of contents relevancy. Default = 1.0
+```
+
+For example, `hexo-rpp-negativewords.txt`  can describe a regular expression as follows. Please enter the keywors of each data separated by newlines.
+
+``` txt
+^.$
+^[0-9]+$
+^If you want to exclude the keywords$
+```
+
+
+## Cache
+
+This option improves the generation speed. 
+
+``` yaml
+popularPosts:
+  cache:
+    path: hexo-popular-related-posts-ga-cached.json
+```
 
 ## License
 
