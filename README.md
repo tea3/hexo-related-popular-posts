@@ -4,8 +4,8 @@ A hexo plugin that generates a list of links to related posts or popular posts.
 
 ## Overview
 
-- Generate related list of posts (tag relevancy & contents relevancy)
-- Generate popular list of posts
+- Generate related list of posts (Relevance of tags & Relevance of contents)
+- Generate popular list of posts (Sort posts by page views)
 
 A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Also , this plugin can generates a list of links to related posts based on contents.
 
@@ -45,9 +45,31 @@ A related article is displayed .
 
 ### 3. Customize more settings
 
-This plugin can set the following options. Please see below for the details.
+This plugin can set the following options. 
 
+```
+# hexo-popular-posts
+popularPosts:
+  googleAnalyticsAPI:
+    clientId: ******.apps.googleusercontent.com
+    serviceEmail: *****@developer.gserviceaccount.com
+    key: /hexo-project-root/path/to/google-services.pem
+    viewId: 12345678
+    dateRange: 30
+    expiresDate: 10
+  morphologicalAnalysis: 
+    negativeKeywordsList: pluginSettings/hexo-rpp-negativewords.txt
+    limit: 300
+  weight:
+    tagRelevancy: 1.0
+    contentsRelevancy: 1.0
+  cache:
+    path: cache/hexo-popular-related-posts-ga-cached.json
+  log: true
+---
+```
 
+Please see below for the details.
 
 ## Options of hepler
 
@@ -72,7 +94,7 @@ This plugin can set the following options. Please see below for the details.
   %>
 ```
 
-2. Popular Articles will generate 10 posts . Popular posts is need Google Analytics API.
+2. Popular Articles will generate 10 posts . (Popular posts is need Google Analytics API.)
 
 ``` ejs
   <%-
@@ -82,7 +104,7 @@ This plugin can set the following options. Please see below for the details.
 
 ### Customize HTML
 
-If you want customize html , please use `popular_posts_json()` helper and make 'htmlGenerator' register . Please edit `themes/(your-theme)/scripts/your_scripts.js`.
+If you want customize html , please use `popular_posts_json()` helper and make `htmlGenerator()` register . 
 
 
 First , please edit `themes/(your-theme)/layout/_partial/your_template.ejs` .
@@ -95,7 +117,7 @@ First , please edit `themes/(your-theme)/layout/_partial/your_template.ejs` .
 %>
 ```
 
-Second , please edit `themes/(your-theme)/scripts/your_scripts.js`
+Second , please edit `themes/(your-theme)/scripts/your_scripts.js` .
 
 ``` javascript
 // Examples of helper
@@ -135,13 +157,13 @@ hexo.extend.helper.register('htmlGenerator', function(args){
 });
 ```
 
-
+---
 
 ## Popular posts
 
 Popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Please edit your config file `_config.yml` and set the following options. 
 
-Please see [https://www.npmjs.com/package/ga-analytics](https://www.npmjs.com/package/ga-analytics)
+Please see [https://www.npmjs.com/package/ga-analytics](https://www.npmjs.com/package/ga-analytics) 
 
 ``` yaml
 popularPosts:
@@ -150,15 +172,14 @@ popularPosts:
     serviceEmail: *****@developer.gserviceaccount.com
     key: /hexo-project-root/path/to/google-services.pem
     viewId: 12345678
-    dateRange: 60
-    expiresDate: 10 # (optional) Expiration date of cache file. Default = 30
-    # # This options is Deprecated > v0.1.3
-    # cache:
-    #  path: hexo-related-popular-posts-ga-cached.json
-    #  expiresDate: 10
+    dateRange: 30       # (Optional) The period you want to get by Google Analytics page view. Default = 30
+    expiresDate: 10     # (optional) Expiration date of cache file. Default = 10
+    # cache:            # (Deprecated) This options is Deprecated > v0.1.3
+    #  path: hexo-related-popular-posts-ga-cached.json  # (Deprecated) This options is Deprecated > v0.1.3
+    #  expiresDate: 10  # (Deprecated) This options is Deprecated > v0.1.3
 ```
 
-If you want to use the environment variable. Please set the following.
+If you want to use the environment variable. Please set the following. If you use Windows , please see [youtube](https://www.youtube.com/watch?v=C-U9SGaNbwY) about what how to set environment variable. 
 
 ``` bash
 $ export GOOGLEAPI_CLIENTID="******.apps.googleusercontent.com"
@@ -178,13 +199,11 @@ popularPosts:
     expiresDate: 10
 ```
 
-
+---
 
 ## Advanced Related posts (Morphological Analysis)
 
-This plugin that can generates a list of links to related posts based on content's keywords. 
-
-Support language is as follow. [Please cooperate with support of other languages.](https://github.com/tea3/hexo-related-popular-posts/pulls)
+This plugin that can generates a list of links to related posts based on content's keywords. Support language is as follow. [Please cooperate with support of other languages.](https://github.com/tea3/hexo-related-popular-posts/pulls)
 
 - ja
 - en
@@ -202,7 +221,7 @@ More detailed options can be set as follows.
 ``` yaml
 popularPosts:
   morphologicalAnalysis: 
-    negativeKeywordsList: hexo-rpp-negativewords.txt  # (optional) If you want to exclude the keywords for analytics , set the exclude file..
+    negativeKeywordsList: hexo-rpp-negativewords.txt  # (optional) If you want to exclude the keywords for analytics , set the exclude file.
     limit: 300              # (optional) If you want to limit the number of keywords for analytics , set the number.
   weight:                   # (optional)
     tagRelevancy: 1.0       # (optional) Weight of tag relevancy. Default = 1.0
@@ -215,6 +234,7 @@ For example, `hexo-rpp-negativewords.txt`  can describe a regular expression as 
 ^.$
 ^[0-9]+$
 ^If you want to exclude the keywords$
+...
 ```
 
 
@@ -225,8 +245,18 @@ This option improves the generation speed.
 ``` yaml
 popularPosts:
   cache:
-    path: hexo-popular-related-posts-ga-cached.json
+    path: hexo-popular-related-posts-cached.json
 ```
+
+## Log
+
+When this option is enabled, logs are displayed.
+
+``` yaml
+popularPosts:
+  log: true  # (Optional) When this option is enabled, logs are displayed. Default = true
+```
+
 
 ## License
 

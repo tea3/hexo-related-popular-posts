@@ -1,6 +1,6 @@
 {
   "name": "hexo-related-popular-posts",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "index",
   "dependencies": {
     "ga-analytics": "0.0.7",
