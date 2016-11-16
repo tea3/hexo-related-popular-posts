@@ -115,8 +115,6 @@ hexo.config.popularPosts = assign( {},
 			"startDate"                   : dateRangeArr[0],
 			"endDate"                     : dateRangeArr[1],
 			"gaData"                      : [] , 
-			"isAlert"                     : false ,
-			"isGaDataOpt"                 : false ,
 			"postPath"					  : []
 		}
 	}
@@ -190,15 +188,18 @@ if(!isGARefresh){
 		        		var isAleadyCreated = false;
 		        		for(var k = 0; k < hexo.config.popularPosts.tmp.gaData.length; k++){
 		        			if( hexo.config.popularPosts.tmp.gaData[k].path == util.normalizeURL(res.rows[i][0]) ){
+		        				
 		        				gaData[0].gaData.push( util.gaDataModel({
-									"updated"      : hexo.config.popularPosts.tmp.gaData[k].updated || "0" ,
-									"title"        : hexo.config.popularPosts.tmp.gaData[k].title || "" ,
-									"path"         : res.rows[i][0] ,
-									"eyeCatchImage": hexo.config.popularPosts.tmp.gaData[k].eyeCatchImage || "" ,
-									"excerpt"      : hexo.config.popularPosts.tmp.gaData[k].excerpt || "" ,
-									"date"         : hexo.config.popularPosts.tmp.gaData[k].date || "",
-									"pv"           : Number(res.rows[i][1]) , 
-									"keywords"     : hexo.config.popularPosts.tmp.gaData[k].keywords || [] ,
+									"updated"        : hexo.config.popularPosts.tmp.gaData[k].updated || "0" ,
+									"title"          : hexo.config.popularPosts.tmp.gaData[k].title || "" ,
+									"path"           : res.rows[i][0] ,
+									"eyeCatchImage"  : hexo.config.popularPosts.tmp.gaData[k].eyeCatchImage || "" ,
+									"excerpt"        : hexo.config.popularPosts.tmp.gaData[k].excerpt || "" ,
+									"date"           : hexo.config.popularPosts.tmp.gaData[k].date || "",
+									"pv"             : Number(res.rows[i][1]) ,
+									"post.categories": hexo.config.popularPosts.tmp.gaData[k].post.categories || [] ,
+									"internalLinks"  : hexo.config.popularPosts.tmp.gaData[k].internalLinks || [] ,
+									"keywords"       : hexo.config.popularPosts.tmp.gaData[k].keywords || [] ,
 									"keywordsLength" : hexo.config.popularPosts.tmp.gaData[k].keywordsLength || 0
 				        		}) );
 				        		

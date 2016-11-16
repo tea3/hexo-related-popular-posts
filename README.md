@@ -11,7 +11,7 @@ A hexo plugin that generates a list of links to related posts based on tags , an
 
 ## DEMO & Documents
 
-- DEMO : [My Posts](https://tea3.github.io/p/tea-plantation-mtfuji/) has generated [related posts](https://tea3.github.io/p/tea-plantation-mtfuji/#relatedPosts) like this.
+- DEMO : [My Posts](https://tea3.github.io/p/tea-plantation-mtfuji/) has generated [related posts](https://tea3.github.io/p/tea-plantation-mtfuji/#relatedPosts) and [popular posts](https://tea3.github.io/p/tea-plantation-mtfuji/#popularPosts) like this.
 - Documents : [read me](https://tea3.github.io/p/hexo-related-popular-posts/) (Japanese)
 
 
@@ -41,15 +41,29 @@ Starts a local server. By default, this is at `http://localhost:4000/`.
 $ hexo server
 ```
 
-A related article is displayed .
+A related article is displayed . The above is an easy introduction usage.
 
-### 3. Customize more settings
+---
 
-This plugin can set the following options. 
+## More settings
+
+If you want to make more detailed settings , please see below for the details.
+
+- [Options of hepler](https://github.com/tea3/hexo-related-popular-posts#options-of-hepler)
+- [Popular posts](https://github.com/tea3/hexo-related-popular-posts#popular-posts)
+- [Advanced Related posts (Morphological Analysis)](https://github.com/tea3/hexo-related-popular-posts#advanced-related-posts-morphological-analysis)
+- [Cache (Improve generation speed.) ](https://github.com/tea3/hexo-related-popular-posts#cache)
+- [Log](https://github.com/tea3/hexo-related-popular-posts#log)
+- [Customize HTML](https://github.com/tea3/hexo-related-popular-posts#customize-html)
+
+
+Also , this plugin can set the following options. Please edit your config file `_config.yml`.
 
 ```
-# hexo-popular-posts
+# More detailed settings
 popularPosts:
+
+  # (optional) Popular posts options
   googleAnalyticsAPI:
     clientId: ******.apps.googleusercontent.com
     serviceEmail: *****@developer.gserviceaccount.com
@@ -57,19 +71,29 @@ popularPosts:
     viewId: 12345678
     dateRange: 30
     expiresDate: 10
+    # cache:            # (Deprecated) This options is Deprecated > v0.1.3
+    #  path: hexo-related-popular-posts-ga-cached.json  # (Deprecated) This options is Deprecated > v0.1.3
+    #  expiresDate: 10  # (Deprecated) This options is Deprecated > v0.1.3
+    
+  # (optional) Advanced Related posts options
   morphologicalAnalysis: 
     negativeKeywordsList: pluginSettings/hexo-rpp-negativewords.txt
     limit: 300
+    
+  # (optional) Related post's weight options
   weight:
     tagRelevancy: 1.0
     contentsRelevancy: 1.0
+    
+  # (optional) Cache options (Improve generation speed.)
   cache:
     path: cache/hexo-popular-related-posts-ga-cached.json
+    
+  # (optional) Log options
   log: true
----
 ```
 
-Please see below for the details.
+
 
 ## Options of hepler
 
@@ -102,12 +126,123 @@ Please see below for the details.
   %>
 ```
 
-### Customize HTML
 
-If you want customize html , please use `popular_posts_json()` helper and make `htmlGenerator()` register . 
+If you want customize list's html , please use [Customize HTML](https://github.com/tea3/hexo-related-popular-posts#customize-html)
+
+---
+
+## Popular posts
+
+Popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Please edit your config file `_config.yml` and set the following options. 
+
+Please see [https://www.npmjs.com/package/ga-analytics](https://www.npmjs.com/package/ga-analytics) 
+
+``` yaml
+popularPosts:
+  googleAnalyticsAPI:
+    clientId: ******.apps.googleusercontent.com
+    serviceEmail: *****@developer.gserviceaccount.com
+    key: /hexo-project-root/path/to/google-services.pem
+    viewId: 12345678
+    dateRange: 30       # (Optional) The period you want to get by Google Analytics page view. Default = 30
+    expiresDate: 10     # (optional) Expiration date of cache file. Default = 10
+    # cache:            # (Deprecated) This options is Deprecated > v0.1.3
+    #  path: hexo-related-popular-posts-ga-cached.json  # (Deprecated) This options is Deprecated > v0.1.3
+    #  expiresDate: 10  # (Deprecated) This options is Deprecated > v0.1.3
+```
+
+If you want to use the environment variable. Please set the following. If you use Windows , please see [youtube](https://www.youtube.com/watch?v=C-U9SGaNbwY) about what how to set environment variable. 
+
+``` bash
+$ export GOOGLEAPI_CLIENTID="******.apps.googleusercontent.com"
+$ export GOOGLEAPI_EMAIL="*****@developer.gserviceaccount.com"
+$ export GOOGLEAPI_KEY="/path/to/google-services.pem"
+$ export GOOGLEAPI_ANALYTICS_TABLE="ga:12345678"
+```
+
+``` yaml
+popularPosts:
+  googleAnalyticsAPI:
+    # clientId: ******.apps.googleusercontent.com
+    # serviceEmail: *****@developer.gserviceaccount.com
+    # key: /hexo-project-root/path/to/google-services.pem
+    # viewId: 12345678
+    dateRange: 60
+    expiresDate: 10
+```
+
+---
+
+## Advanced Related posts (Morphological Analysis)
+
+This plugin that can generates a list of links to related posts based on content's keywords and internal link. Support language is as follow. [Please cooperate with support of other languages.](https://github.com/tea3/hexo-related-popular-posts/pulls)
+
+- ja
+- en
+
+If you want to generates a list of links to related posts based on contents , please set the `morphologicalAnalysis` option.
+
+``` yaml
+popularPosts:
+  morphologicalAnalysis: 
+```
+
+More detailed options can be set as follows.
 
 
-First , please edit `themes/(your-theme)/layout/_partial/your_template.ejs` .
+``` yaml
+popularPosts:
+  morphologicalAnalysis: 
+    negativeKeywordsList: hexo-rpp-negativewords.txt  # (optional) If you want to exclude the keywords for analytics , set the exclude file.
+    limit: 300              # (optional) If you want to limit the number of keywords for analytics , set the number.
+  weight:                   # (optional)
+    tagRelevancy: 1.0       # (optional) Weight of tag relevancy. Default = 1.0
+    contentsRelevancy: 1.0  # (optional) Weight of contents relevancy. Default = 1.0
+```
+
+For example, `hexo-rpp-negativewords.txt`  can describe a regular expression as follows. Please enter the keywors of each data separated by newlines.
+
+``` txt
+^.$
+^[0-9]+$
+^String to exclude from related keywords$
+^関連キーワードから除外しておきたい文字列を正規表現で指定する$
+^要从相关关键字排除的字符串$
+...
+```
+
+---
+
+## Cache
+
+This option improves the generation speed. 
+
+``` yaml
+popularPosts:
+  cache:
+    path: hexo-popular-related-posts-cached.json
+```
+
+---
+
+## Log
+
+When this option is enabled, logs are displayed.
+
+``` yaml
+popularPosts:
+  log: true  # (Optional) When this option is enabled, logs are displayed. Default = true
+```
+
+
+---
+
+## Customize HTML
+
+If you want customize list's html , please use `popular_posts_json()` helper and `htmlGenerator()` register . 
+
+
+First , please edit `themes/(your-theme)/layout/_partial/your_article_template.ejs` .
 
 ``` ejs
 <%-
@@ -159,108 +294,12 @@ hexo.extend.helper.register('htmlGenerator', function(args){
 
 ---
 
-## Popular posts
-
-Popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Please edit your config file `_config.yml` and set the following options. 
-
-Please see [https://www.npmjs.com/package/ga-analytics](https://www.npmjs.com/package/ga-analytics) 
-
-``` yaml
-popularPosts:
-  googleAnalyticsAPI:
-    clientId: ******.apps.googleusercontent.com
-    serviceEmail: *****@developer.gserviceaccount.com
-    key: /hexo-project-root/path/to/google-services.pem
-    viewId: 12345678
-    dateRange: 30       # (Optional) The period you want to get by Google Analytics page view. Default = 30
-    expiresDate: 10     # (optional) Expiration date of cache file. Default = 10
-    # cache:            # (Deprecated) This options is Deprecated > v0.1.3
-    #  path: hexo-related-popular-posts-ga-cached.json  # (Deprecated) This options is Deprecated > v0.1.3
-    #  expiresDate: 10  # (Deprecated) This options is Deprecated > v0.1.3
-```
-
-If you want to use the environment variable. Please set the following. If you use Windows , please see [youtube](https://www.youtube.com/watch?v=C-U9SGaNbwY) about what how to set environment variable. 
-
-``` bash
-$ export GOOGLEAPI_CLIENTID="******.apps.googleusercontent.com"
-$ export GOOGLEAPI_EMAIL="*****@developer.gserviceaccount.com"
-$ export GOOGLEAPI_KEY="/path/to/google-services.pem"
-$ export GOOGLEAPI_ANALYTICS_TABLE="ga:12345678"
-```
-
-``` yaml
-popularPosts:
-  googleAnalyticsAPI:
-    # clientId: ******.apps.googleusercontent.com
-    # serviceEmail: *****@developer.gserviceaccount.com
-    # key: /hexo-project-root/path/to/google-services.pem
-    # viewId: 12345678
-    dateRange: 60
-    expiresDate: 10
-```
-
----
-
-## Advanced Related posts (Morphological Analysis)
-
-This plugin that can generates a list of links to related posts based on content's keywords. Support language is as follow. [Please cooperate with support of other languages.](https://github.com/tea3/hexo-related-popular-posts/pulls)
-
-- ja
-- en
-
-If you want to generates a list of links to related posts based on contents , please set the `morphologicalAnalysis` option.
-
-``` yaml
-popularPosts:
-  morphologicalAnalysis: 
-```
-
-More detailed options can be set as follows.
-
-
-``` yaml
-popularPosts:
-  morphologicalAnalysis: 
-    negativeKeywordsList: hexo-rpp-negativewords.txt  # (optional) If you want to exclude the keywords for analytics , set the exclude file.
-    limit: 300              # (optional) If you want to limit the number of keywords for analytics , set the number.
-  weight:                   # (optional)
-    tagRelevancy: 1.0       # (optional) Weight of tag relevancy. Default = 1.0
-    contentsRelevancy: 1.0  # (optional) Weight of contents relevancy. Default = 1.0
-```
-
-For example, `hexo-rpp-negativewords.txt`  can describe a regular expression as follows. Please enter the keywors of each data separated by newlines.
-
-``` txt
-^.$
-^[0-9]+$
-^If you want to exclude the keywords$
-...
-```
-
-
-## Cache
-
-This option improves the generation speed. 
-
-``` yaml
-popularPosts:
-  cache:
-    path: hexo-popular-related-posts-cached.json
-```
-
-## Log
-
-When this option is enabled, logs are displayed.
-
-``` yaml
-popularPosts:
-  log: true  # (Optional) When this option is enabled, logs are displayed. Default = true
-```
-
-
 ## License
 
 MIT
 
+## Thank you for a wonderful plugin.
+
 - Hexo : [http://hexo.io/](http://hexo.io/)
+- ga-analytics : [https://github.com/sfarthin/ga-analytics](https://github.com/sfarthin/ga-analytics)
 - kuromoji.js : [https://github.com/takuyaa/kuromoji.js](https://github.com/takuyaa/kuromoji.js)
