@@ -1,6 +1,6 @@
 # hexo-related-popular-posts
 
-A hexo plugin that generates a list of links to related posts or popular posts.
+A hexo plugin that generates a list of links to related posts or popular posts. Also , this plugin can get Visitor Counts (PV) on posts.
 
 ## Overview
 
