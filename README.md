@@ -4,8 +4,9 @@ A hexo plugin that generates a list of links to related posts or popular posts.
 
 ## Overview
 
-- Generate related list of posts (Relevance of tags & Relevance of contents)
-- Generate popular list of posts (Sort posts by page views)
+- Generate related list of posts. (Relevance of tags & Relevance of contents)
+- Generate popular list of posts. (Sort posts by page views)
+- Get Page Views information on posts. (Visitor Counter)
 
 A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Also , this plugin can generates a list of links to related posts based on contents.
 
@@ -25,7 +26,7 @@ $ npm install hexo-related-popular-posts --save
 
 ### 1. Edit your theme
 
-First, add the following helper tag in template file for article. Please edit `themes/(your-theme)/layout/_partial/your_template.ejs`.
+First, add the following `popular_posts()` helper tag in template file for article. Please edit `themes/(your-theme)/layout/_partial/your_template.ejs`.
 
 ``` ejs
   <%-
@@ -55,11 +56,12 @@ If you want to make more detailed settings , please see below for the details.
 - [Cache (Improve generation speed.) ](https://github.com/tea3/hexo-related-popular-posts#cache)
 - [Log](https://github.com/tea3/hexo-related-popular-posts#log)
 - [Customize HTML](https://github.com/tea3/hexo-related-popular-posts#customize-html)
+- [Visitor Counter](https://github.com/tea3/hexo-related-popular-posts#visitor-counter)
 
 
 Also , this plugin can set the following options. Please edit your config file `_config.yml`.
 
-```
+``` yaml
 # More detailed settings
 popularPosts:
 
@@ -71,6 +73,7 @@ popularPosts:
     viewId: 12345678
     dateRange: 30
     expiresDate: 10
+    pvMeasurementsStartDate: 2015/11/01
     # cache:            # (Deprecated) This options is Deprecated > v0.1.3
     #  path: hexo-related-popular-posts-ga-cached.json  # (Deprecated) This options is Deprecated > v0.1.3
     #  expiresDate: 10  # (Deprecated) This options is Deprecated > v0.1.3
@@ -107,6 +110,7 @@ popularPosts:
 | isDate| visible the date | `false` |
 | isImage| visible the image | `false` |
 | isExcerpt| visible the excerpt | `false` |
+| PPCategoryFilter | Option to fix category on Popular Posts | `undefined` |
 
 ### Helper's Option Examples
 
@@ -215,7 +219,7 @@ For example, `hexo-rpp-negativewords.txt`  can describe a regular expression as 
 
 ## Cache
 
-This option improves the generation speed. 
+This option improves the generation speed. please set the `cache` option.
 
 ``` yaml
 popularPosts:
@@ -227,7 +231,7 @@ popularPosts:
 
 ## Log
 
-When this option is enabled, logs are displayed.
+When this option is enabled, logs are displayed. please set the `log` option.
 
 ``` yaml
 popularPosts:
@@ -291,6 +295,36 @@ hexo.extend.helper.register('htmlGenerator', function(args){
   return returnHTML;
 });
 ```
+
+---
+
+## Visitor Counter
+
+This plugin can get Page Views information on posts. please set the `pvMeasurementsStartDate` option. Also , Visitor Counter is need [Google Analytics API](https://github.com/tea3/hexo-related-popular-posts#popular-posts) .
+
+First , please edit your config file `_config.yml`.
+
+``` yaml
+popularPosts:
+  # (optional) Popular posts options
+  googleAnalyticsAPI:
+    clientId: ******.apps.googleusercontent.com
+    serviceEmail: *****@developer.gserviceaccount.com
+    key: /hexo-project-root/path/to/google-services.pem
+    viewId: 12345678
+    dateRange: 30
+    expiresDate: 10
+    pvMeasurementsStartDate: 2015/11/01
+```
+
+Second , add the following `popular_posts_pv()` helper tag in template file for article. please edit `themes/(your-theme)/layout/_partial/your_article_template.ejs` . 
+
+``` ejs
+    This post's Visitor Counts is 
+    <%- popular_posts_pv() %> 
+    views.
+```
+
 
 ---
 
