@@ -1,6 +1,6 @@
 # hexo-related-popular-posts
 
-A hexo plugin that generates a list of links to related posts or popular posts. Also , this plugin can get Visitor Counts (PV) on posts.
+A hexo plugin that generates a list of links to related posts or popular posts. Also , this plugin can display Visitor Counts (Pageview) on posts.
 
 ## Overview
 
@@ -8,11 +8,13 @@ A hexo plugin that generates a list of links to related posts or popular posts. 
 - Generate popular list of posts. (Sort posts by page views)
 - Get Page Views information on posts. (Visitor Counter)
 
-A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Also , this plugin can generates a list of links to related posts based on contents.
+A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. 
+
+Also , this plugin can generates a list of links to related posts based on contents. In addition , plugin supports different styles, thumbnails, is fully customizable and includes caching for improved performance.
 
 ## DEMO & Documents
 
-- DEMO : [My Posts](https://tea3.github.io/p/tea-plantation-mtfuji/) has generated [related posts](https://tea3.github.io/p/tea-plantation-mtfuji/#relatedPosts) and [popular posts](https://tea3.github.io/p/tea-plantation-mtfuji/#popularPosts) like this.
+- DEMO : [My Posts](https://tea3.github.io/p/tea-plantation-mtfuji/) has generated [related posts](https://tea3.github.io/p/tea-plantation-mtfuji/#relatedPosts) and [popular posts](https://tea3.github.io/p/tea-plantation-mtfuji/#popularPosts) like this. In addition, the [page view](https://tea3.github.io/p/tea-plantation-mtfuji/#pageView) is displayed like this.
 - Documents : [read me](https://tea3.github.io/p/hexo-related-popular-posts/) (Japanese)
 
 
@@ -57,6 +59,7 @@ If you want to make more detailed settings , please see below for the details.
 - [Log](https://github.com/tea3/hexo-related-popular-posts#log)
 - [Customize HTML](https://github.com/tea3/hexo-related-popular-posts#customize-html)
 - [Visitor Counter](https://github.com/tea3/hexo-related-popular-posts#visitor-counter)
+- [Ranking Sheet](https://github.com/tea3/hexo-related-popular-posts#ranking-sheet)
 
 
 Also , this plugin can set the following options. Please edit your config file `_config.yml`.
@@ -74,6 +77,7 @@ popularPosts:
     dateRange: 30
     expiresDate: 10
     pvMeasurementsStartDate: 2015/11/01
+    rankingSheet: rankingSheet.txt
     # cache:            # (Deprecated) This options is Deprecated > v0.1.3
     #  path: hexo-related-popular-posts-ga-cached.json  # (Deprecated) This options is Deprecated > v0.1.3
     #  expiresDate: 10  # (Deprecated) This options is Deprecated > v0.1.3
@@ -324,6 +328,28 @@ Second , add the following `popular_posts_pv()` helper tag in template file for 
     <%- popular_posts_pv() %> 
     views.
 ```
+
+---
+
+## Ranking Sheet
+
+This plugin can make Page Views Ranking Sheet. If you want to use , please set the `rankingSheet` option. Ranking Sheet is need [Google Analytics API](https://github.com/tea3/hexo-related-popular-posts#popular-posts) .
+
+``` yaml
+popularPosts:
+  # (optional) Popular posts options
+  googleAnalyticsAPI:
+    clientId: ******.apps.googleusercontent.com
+    serviceEmail: *****@developer.gserviceaccount.com
+    key: /hexo-project-root/path/to/google-services.pem
+    viewId: 12345678
+    dateRange: 30
+    expiresDate: 10
+    pvMeasurementsStartDate: 2015/11/01
+    rankingSheet: rankingSheet.txt
+```
+
+
 
 
 ---

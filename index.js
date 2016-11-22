@@ -26,6 +26,7 @@ var email                        = null;
 var key                          = null;
 var viewId                       = null;
 var cache_path                   = null;
+var rankingSheet                 = null;
 var cache_exexpires              = 10;
 var pvMeasurementsStartDate      = "";
 var weight_of_tag_relevancy      = 1.0;
@@ -78,6 +79,10 @@ if( hexo.config.popularPosts ){
 		if( hexo.config.popularPosts.googleAnalyticsAPI.expiresDate != undefined){
 			cache_exexpires = Number(hexo.config.popularPosts.googleAnalyticsAPI.expiresDate);
 		}
+		
+		if( hexo.config.popularPosts.googleAnalyticsAPI.rankingSheet && hexo.config.popularPosts.googleAnalyticsAPI.rankingSheet){
+			rankingSheet = pathFn.join(process.env.PWD , hexo.config.popularPosts.googleAnalyticsAPI.rankingSheet);
+		}
 	}
 
 	// related posts weight option
@@ -119,6 +124,7 @@ hexo.config.popularPosts = assign( {},
 			"key"                         : key ,
 			"viewId"                      : viewId ,
 			"cache_path"                  : cache_path ,
+			"rankingSheet"				  : rankingSheet ,
 			"cache_exexpires"             : cache_exexpires ,
 			"pvMeasurementsStartDate"     : pvMeasurementsStartDate ,
 			"old_cacheDate"               : "" ,

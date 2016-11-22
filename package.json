@@ -1,9 +1,10 @@
 {
   "name": "hexo-related-popular-posts",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "index",
   "dependencies": {
-    "ga-analytics": "0.0.7",
+    "columnify": "^1.5.4",
+    "ga-analytics": "^0.0.7",
     "hexo-fs": "^0.1.6",
     "mkdirp": "^0.5.1",
     "moment": "^2.14.1",
@@ -13,7 +14,7 @@
     "hasha": "^2.2.0",
     "log-util": "^1.1.2"
   },
-  "description": "A hexo plugin that generates a list of links to related posts and popular posts. Also , this plugin can get Visitor Counts (PV) on posts.",
+  "description": "A hexo plugin that generates a list of links to related posts and popular posts. Also , this plugin can get Visitor Counts (PageView) on posts.",
   "devDependencies": {
     "hexo": "^3.0.0-rc.3"
   },
