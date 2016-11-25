@@ -48,7 +48,6 @@ if( hexo.config.popularPosts ){
 		if( hexo.config.popularPosts.googleAnalyticsAPI.dateRange){
 			dateRange = Number(hexo.config.popularPosts.googleAnalyticsAPI.dateRange);
 		}
-		dateRangeArr = dr.getDateRange(dateRange);
 
 		if( hexo.config.popularPosts.googleAnalyticsAPI.clientId && hexo.config.popularPosts.googleAnalyticsAPI.serviceEmail && hexo.config.popularPosts.googleAnalyticsAPI.key && hexo.config.popularPosts.googleAnalyticsAPI.viewId){
 			id          = hexo.config.popularPosts.googleAnalyticsAPI.clientId;
@@ -105,6 +104,7 @@ if( hexo.config.popularPosts ){
 		isLog = hexo.config.popularPosts.log;
 	}
 }
+dateRangeArr = dr.getDateRange(dateRange);
 
 
 // orverride config.popularPosts

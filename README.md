@@ -8,7 +8,7 @@ A hexo plugin that generates a list of links to related posts or popular posts. 
 - Generate popular list of posts. (Sort posts by page views)
 - Get Page Views information on posts. (Visitor Counter)
 
-A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. 
+A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts need Google Analytics API. 
 
 Also , this plugin can generates a list of links to related posts based on contents. In addition , plugin supports different styles, thumbnails, is fully customizable and includes caching for improved performance.
 
@@ -126,7 +126,7 @@ popularPosts:
   %>
 ```
 
-2. Popular Articles will generate 10 posts . (Popular posts is need Google Analytics API.)
+2. Popular Articles will generate 10 posts . (Popular posts need Google Analytics API.)
 
 ``` ejs
   <%-
@@ -141,7 +141,7 @@ If you want customize list's html , please use [Customize HTML](https://github.c
 
 ## Popular posts
 
-Popular posts base on page view of Google Analytics. Popular posts is need Google Analytics API. Please edit your config file `_config.yml` and set the following options. 
+Popular posts base on page view of Google Analytics. Popular posts need Google Analytics API. Please edit your config file `_config.yml` and set the following options. 
 
 Please see [https://www.npmjs.com/package/ga-analytics](https://www.npmjs.com/package/ga-analytics) 
 
@@ -304,7 +304,7 @@ hexo.extend.helper.register('htmlGenerator', function(args){
 
 ## Visitor Counter
 
-This plugin can get Page Views information on posts. please set the `pvMeasurementsStartDate` option. Also , Visitor Counter is need [Google Analytics API](https://github.com/tea3/hexo-related-popular-posts#popular-posts) .
+This plugin can get Page Views information on posts. please set the `pvMeasurementsStartDate` option. Also , Visitor Counter need [Google Analytics API](https://github.com/tea3/hexo-related-popular-posts#popular-posts) .
 
 First , please edit your config file `_config.yml`.
 
@@ -333,7 +333,7 @@ Second , add the following `popular_posts_pv()` helper tag in template file for 
 
 ## Ranking Sheet
 
-This plugin can make Page Views Ranking Sheet. If you want to use , please set the `rankingSheet` option. Ranking Sheet is need [Google Analytics API](https://github.com/tea3/hexo-related-popular-posts#popular-posts) .
+This plugin can make Page Views Ranking Sheet. If you want to use , please set the `rankingSheet` option. Ranking Sheet need [Google Analytics API](https://github.com/tea3/hexo-related-popular-posts#popular-posts) .
 
 ``` yaml
 popularPosts:
