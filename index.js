@@ -52,7 +52,7 @@ if( hexo.config.popularPosts ){
 		if( hexo.config.popularPosts.googleAnalyticsAPI.clientId && hexo.config.popularPosts.googleAnalyticsAPI.serviceEmail && hexo.config.popularPosts.googleAnalyticsAPI.key && hexo.config.popularPosts.googleAnalyticsAPI.viewId){
 			id          = hexo.config.popularPosts.googleAnalyticsAPI.clientId;
 			email       = hexo.config.popularPosts.googleAnalyticsAPI.serviceEmail;
-			key         = pathFn.join(process.env.PWD , hexo.config.popularPosts.googleAnalyticsAPI.key);
+			key         = pathFn.join(process.env.PWD || process.cwd() , hexo.config.popularPosts.googleAnalyticsAPI.key);
 			viewId      = 'ga:' + hexo.config.popularPosts.googleAnalyticsAPI.viewId;
 		}else if( process.env.GOOGLEAPI_CLIENTID && process.env.GOOGLEAPI_EMAIL && process.env.GOOGLEAPI_KEY && process.env.GOOGLEAPI_ANALYTICS_TABLE ){
 			id          = process.env.GOOGLEAPI_CLIENTID;
@@ -80,7 +80,7 @@ if( hexo.config.popularPosts ){
 		}
 		
 		if( hexo.config.popularPosts.googleAnalyticsAPI.rankingSheet && hexo.config.popularPosts.googleAnalyticsAPI.rankingSheet){
-			rankingSheet = pathFn.join(process.env.PWD , hexo.config.popularPosts.googleAnalyticsAPI.rankingSheet);
+			rankingSheet = pathFn.join(process.env.PWD || process.cwd() , hexo.config.popularPosts.googleAnalyticsAPI.rankingSheet);
 		}
 	}
 
@@ -96,7 +96,7 @@ if( hexo.config.popularPosts ){
 	
 	// cache option
 	if( hexo.config.popularPosts.cache && hexo.config.popularPosts.cache.path){
-		cache_path = pathFn.join(process.env.PWD , hexo.config.popularPosts.cache.path);
+		cache_path = pathFn.join(process.env.PWD || process.cwd() , hexo.config.popularPosts.cache.path);
 	}
 	
 	// log option
