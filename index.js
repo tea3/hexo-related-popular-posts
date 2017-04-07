@@ -9,15 +9,12 @@ var dr           = require('./lib/dateRange.js');
 var su           = require('./lib/settingsUpdate.js');
 var lg           = require('./lib/log.js');
 var pjson        = require('./package.json');
-
 var dateRangeArr = null;
 var gaData       = null;
 var shash        = su.chkUpdate(hexo.config);
 var ngwHash      = su.chkUpdate_ngw(hexo.config);
 var ndt = new Date();
   	ndt = ndt.getTime();
-
-
 
 // option
 var dateRange                    = 30;
@@ -32,7 +29,6 @@ var pvMeasurementsStartDate      = "";
 var weight_of_tag_relevancy      = 1.0;
 var weight_of_contents_relevancy = 1.0;
 var isLog 						 = true;
-
 
 // get setting from _config.yml
 if( hexo.config.popularPosts ){
@@ -131,15 +127,14 @@ hexo.config.popularPosts = assign( {},
 			"weight_of_tag_relevancy"     : weight_of_tag_relevancy ,
 			"weight_of_contents_relevancy": weight_of_contents_relevancy ,
 			"startDate"                   : dateRangeArr[0] ,
-			"endDate"                     : dateRangeArr[1] ,
-			"gaData"                      : [] , 
+			"endDate"                     : dateRangeArr[1],
+			"gaData"                      : [] ,
 			"postPath"					  : []
 		}
 	}
 );
 
 lg.setConfig(hexo.config);
-
 
 // load cache data
 if(cache_path && fs.existsSync(cache_path)){
@@ -168,12 +163,14 @@ if(cache_path && fs.existsSync(cache_path)){
 	}
 }
 
-
-
 hexo.extend.filter.register('after_init', require('./lib/googleAnalytics'), {async: true});
 hexo.extend.filter.register('after_post_render', require('./lib/collector'), {async: true});
-hexo.extend.filter.register('after_generate', require('./lib/cache') );
-hexo.extend.helper.register('popular_posts', require('./lib/helper'));
-hexo.extend.helper.register('popular_posts_json', require('./lib/helper-json'));
+hexo.extend.filter.register('after_generate', require('./lib/cache'));
+hexo.extend.helper.register('popular_posts', function(options){
+	return require('./lib/helper')(options , this , hexo);
+});
+hexo.extend.helper.register('popular_posts_json', function(options){
+	return require('./lib/helper-json')(options , this , hexo);
+});
 hexo.extend.helper.register('popular_posts_pv', require('./lib/pv'));
 
