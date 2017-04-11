@@ -2,6 +2,8 @@
 
 A hexo plugin that generates a list of links to related posts or popular posts. Also , this plugin can display Visitor Counts (Pageview) on posts.
 
+![Screenshot](src/img/hexo-rrp.png)
+
 ## Overview
 
 - Generate related list of posts. (Relevance of tags & Relevance of contents)
@@ -28,7 +30,7 @@ $ npm install hexo-related-popular-posts --save
 
 ### 1. Edit your theme
 
-First, add the following `popular_posts()` helper tag in template file for article. Please edit `themes/(your-theme)/layout/_partial/your_template.ejs`.
+First, add the following `popular_posts()` helper tag in template file for article. Please edit `themes/(your-theme)/layout/_partial/your_template.ejs`. For example , In [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) you will edit `themes/landscape/layout/_partial/article.ejs`.
 
 ``` ejs
   <%-
@@ -41,6 +43,7 @@ First, add the following `popular_posts()` helper tag in template file for artic
 Starts a local server. By default, this is at `http://localhost:4000/`.
 
 ``` bash
+$ hexo clean
 $ hexo server
 ```
 
