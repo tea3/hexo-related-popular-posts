@@ -2,7 +2,7 @@
 
 A hexo plugin that generates a list of links to related posts or popular posts. Also , this plugin can display Visitor Counts (Pageview) on posts.
 
-![Screenshot](src/img/hexo-rrp.png)
+![Screenshot](src/img/hexo-rpp.png)
 
 ## Overview
 
