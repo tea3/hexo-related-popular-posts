@@ -1,6 +1,6 @@
 {
   "name": "hexo-related-popular-posts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index",
   "dependencies": {
     "columnify": "^1.5.4",
