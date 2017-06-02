@@ -1,4 +1,4 @@
-> Before you submit your issue, please tell me your environment info. Also , If you occur `ERROR Plugin load failed:` , please reinstall hexo and npm as follows, for example.
+> Before you submit your issue, please tell me your environment info. Also , if you occur `ERROR Plugin load failed:` , please reinstall hexo and npm as follows, for example.
 
 ```
 $ nvm install v6.10.1
@@ -10,6 +10,9 @@ $ cd hexo6101
 $ npm install
 $ npm install hexo-related-popular-posts --save
 ```
+
+Also , if you occur `DTraceProviderBindings.node` error , please see issue#1.
+[https://github.com/tea3/hexo-related-popular-posts/issues/1](https://github.com/tea3/hexo-related-popular-posts/issues/1)
 
 ## For BUG
 

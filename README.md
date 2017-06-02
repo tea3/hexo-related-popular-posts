@@ -26,6 +26,11 @@ Also , this plugin can generates a list of links to related posts based on conte
 $ npm install hexo-related-popular-posts --save
 ```
 
+If you occur `ERROR Plugin load failed:` error or `DTraceProviderBindings.node` error , please see below.
+
+- [ISSUE_TEMPLATE](https://github.com/tea3/hexo-related-popular-posts/blob/master/.github/ISSUE_TEMPLATE.md)
+- [DTraceProviderBindings.node issue #1](https://github.com/tea3/hexo-related-popular-posts/issues/1)
+
 ## Usage
 
 ### 1. Edit your theme
