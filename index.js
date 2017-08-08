@@ -166,11 +166,11 @@ if(cache_path && fs.existsSync(cache_path)){
 hexo.extend.filter.register('after_init', require('./lib/googleAnalytics'), {async: true});
 hexo.extend.filter.register('after_post_render', require('./lib/collector'), {async: true});
 hexo.extend.filter.register('after_generate', require('./lib/cache'));
-hexo.extend.helper.register('popular_posts', function(options){
-	return require('./lib/helper')(options , this , hexo);
+hexo.extend.helper.register('popular_posts', function(options, forcePost){
+	return require('./lib/helper')(options , this , hexo , forcePost);
 });
-hexo.extend.helper.register('popular_posts_json', function(options){
-	return require('./lib/helper-json')(options , this , hexo);
+hexo.extend.helper.register('popular_posts_json', function(options , forcePost){
+	return require('./lib/helper-json')(options , this , hexo , forcePost);
 });
 hexo.extend.helper.register('popular_posts_pv', require('./lib/pv'));
 

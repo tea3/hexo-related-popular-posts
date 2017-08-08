@@ -43,7 +43,29 @@ First, add the following `popular_posts()` helper tag in template file for artic
   %>
 ```
 
-### 2. Run server
+Please refer follow as about how to use this plugin with based other templates.
+
+- [Swig (e.g. hexo-theme-next)](https://github.com/tea3/hexo-related-popular-posts/issues/4)
+
+### 2. Add tags in posts
+
+If tags are included in the article, related articles will be displayed as a list. For example, add a tag like the following markdown file.
+
+```
+---
+title: Hello World
+tags:
+  - program
+  - diary
+  - web
+---
+Welcome to [Hexo](https://hexo.io/)! This is a sample article. Let's add some tags as above.
+...
+```
+
+The larger the number of matching tags, the more relevant articles are displayed as candidates.
+
+### 3. Run server
 
 Starts a local server. By default, this is at `http://localhost:4000/`.
 
@@ -52,7 +74,7 @@ $ hexo clean
 $ hexo server
 ```
 
-A related article is displayed . The above is an easy introduction usage.
+The above is an easy introduction usage.
 
 ---
 
