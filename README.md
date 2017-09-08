@@ -4,6 +4,18 @@ A hexo plugin that generates a list of links to related posts or popular posts. 
 
 ![Screenshot](src/img/hexo-rpp.png)
 
+## DEMO & Documents
+
+- DEMO : [My Posts](https://photo-tea.com/p/tea-plantation-mtfuji/) has generated [related posts](https://photo-tea.com/p/tea-plantation-mtfuji/#relatedPosts) and [popular posts](https://photo-tea.com/p/tea-plantation-mtfuji/#popularPosts) like this. 
+- Documents : [read me](https://photo-tea.com/p/hexo-related-popular-posts/) (Japanese)
+
+#### Thank you for introduction.
+
+- *KOREA*:[Plugins hexo-related-popular-posts 설정하기 - MSFL::모리스 소프트웨어 공작소, IT Blog](http://ccambo.gitlab.io/2017/04/19/Plugins-hexo-related-popular-posts-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/)
+- *JAPAN*:[サイトをカスタマイズしました : タグクラウドプラグイン & 関連記事表示プラグインの導入 & 一部シェアボタン追加 - YoshinoriN's Memento](https://yoshinorin.net/2016/11/03/hexo-blog-customize/)
+- *JAPAN*:[HEXOをカスタマイズしました(関連記事プラグイン導入とか)">HEXOをカスタマイズしました(関連記事プラグイン導入とか) - 可愛いを叫ぶブログ](http://8hagi.sakura.ne.jp/sblog/2017/02/11/hexo-related-post/)
+- *JAPAN*:[Hexo に 関連する記事のリストを追加する - Azriton's blog](https://azriton.github.io/2017/06/16/Hexo%E3%81%AB%E9%96%A2%E9%80%A3%E3%81%99%E3%82%8B%E8%A8%98%E4%BA%8B%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B/)
+
 ## Overview
 
 - Generate related list of posts. (Relevance of tags & Relevance of contents)
@@ -13,11 +25,6 @@ A hexo plugin that generates a list of links to related posts or popular posts. 
 A hexo plugin that generates a list of links to related posts based on tags , and plugin that generates a list of links to popular posts base on page view of Google Analytics. Popular posts need Google Analytics API. 
 
 Also , this plugin can generates a list of links to related posts based on contents. In addition , plugin supports different styles, thumbnails, is fully customizable and includes caching for improved performance.
-
-## DEMO & Documents
-
-- DEMO : [My Posts](https://tea3.github.io/p/tea-plantation-mtfuji/) has generated [related posts](https://tea3.github.io/p/tea-plantation-mtfuji/#relatedPosts) and [popular posts](https://tea3.github.io/p/tea-plantation-mtfuji/#popularPosts) like this. In addition, the [page view](https://tea3.github.io/p/tea-plantation-mtfuji/#pageView) is displayed like this.
-- Documents : [read me](https://tea3.github.io/p/hexo-related-popular-posts/) (Japanese)
 
 
 ## Installation

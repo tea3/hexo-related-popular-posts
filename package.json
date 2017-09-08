@@ -1,6 +1,6 @@
 {
   "name": "hexo-related-popular-posts",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index",
   "dependencies": {
     "columnify": "^1.5.4",
@@ -24,7 +24,7 @@
   "author": {
     "email": "tea3gtinfo@gmail.com",
     "name": "tea3",
-    "url": "https://tea3.github.io/"
+    "url": "https://photo-tea.com/"
   },
   "bugs": {
     "url": "https://github.com/tea3/hexo-related-popular-posts/issues"
