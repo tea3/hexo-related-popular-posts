@@ -1,6 +1,6 @@
 {
   "name": "hexo-related-popular-posts",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index",
   "dependencies": {
     "columnify": "^1.5.4",
@@ -10,7 +10,7 @@
     "moment": "^2.18.1",
     "object-assign": "^4.1.1",
     "kuromoji": "^0.1.1",
-    "bluebird": "^3.5.0",
+    "bluebird": "^3.5.1",
     "hasha": "^3.0.0",
     "log-util": "^1.2.0"
   },
