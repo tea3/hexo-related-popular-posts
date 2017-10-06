@@ -8,9 +8,9 @@ A hexo plugin that generates a list of links to related posts or popular posts.
 
 ## Overview
 
-- Generate [related list of posts](#usage).
+- Generate [related list of posts](#simply-usage).
 
-    Sort and extracted by [relevance of tags](#usage) and [word relevance of contents](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#advanced-related-posts-morphological-analysis).
+    Sort and extracted by [relevance of tags](#simply-usage) and [word relevance of contents](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#advanced-related-posts-morphological-analysis).
     
 - Generate [popular list of posts](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#popular-posts).
 
