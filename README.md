@@ -56,7 +56,7 @@ Helper tag can set [more option](https://github.com/tea3/hexo-related-popular-po
 Also , if you occur `Cannot read property 'tags' of undefined` error , please refer to the follow as.
 
 - [Swig (e.g. hexo-theme-next)](https://github.com/tea3/hexo-related-popular-posts/issues/4)
-- [Ejs (e.g. hexo-theme-phantom)(https://github.com/tea3/hexo-related-popular-posts/issues/6)]
+- [Ejs (e.g. hexo-theme-phantom)](https://github.com/tea3/hexo-related-popular-posts/issues/6)
 
 ### 2. Add tags in markdown
 
