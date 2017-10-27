@@ -51,9 +51,12 @@ First, add the following `popular_posts()` helper tag in template file for artic
   %>
 ```
 
-Helper tag can set [more option](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#hepler) and [customize the design](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#customize-html) . For detail , please see the wiki. Also , please refer follow as about how to use this plugin with based other templates.
+Helper tag can set [more option](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#hepler) and [customize the design](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#customize-html) . For detail , please see the wiki.
+
+Also , if you occur `Cannot read property 'tags' of undefined` error , please refer to the follow as.
 
 - [Swig (e.g. hexo-theme-next)](https://github.com/tea3/hexo-related-popular-posts/issues/4)
+- [Ejs (e.g. hexo-theme-phantom)(https://github.com/tea3/hexo-related-popular-posts/issues/6)]
 
 ### 2. Add tags in markdown
 
