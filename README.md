@@ -47,7 +47,7 @@ First, add the following `popular_posts()` helper tag in template file for artic
 
 ``` ejs
   <%-
-    popular_posts()
+    popular_posts( {} , post )
   %>
 ```
 
