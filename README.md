@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tea3/hexo-related-popular-posts.svg?branch=master)](https://travis-ci.org/tea3/hexo-related-popular-posts) [![Coverage Status](https://img.shields.io/coveralls/tea3/hexo-related-popular-posts.svg)](https://coveralls.io/r/tea3/hexo-related-popular-posts?branch=master) <!--[![NPM version](https://badge.fury.io/js/hexo-related-popular-posts.svg)](http://badge.fury.io/js/hexo-related-popular-posts)-->
+
 # hexo-related-popular-posts
 
 A hexo plugin that generates a list of links to related posts or popular posts.

@@ -2,6 +2,12 @@
   "name": "hexo-related-popular-posts",
   "version": "3.0.0",
   "main": "index",
+  "scripts": {
+    "test-normal": "mocha test/test.js",
+    "test": "mocha test/test.js --require intelli-espower-loader",
+    "test-cov": "istanbul cover --print both _mocha -- test/test.js --require intelli-espower-loader",
+    "eslint": "eslint ."
+  },
   "dependencies": {
     "columnify": "^1.5.4",
     "ga-analytics": "^0.0.7",
@@ -11,6 +17,13 @@
     "kuromoji": "^0.1.1",
     "hasha": "^3.0.0",
     "log-util": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "istanbul": "^0.4.5",
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^4.0.1",
+    "power-assert": "^1.4.4"
   },
   "description": "A hexo plugin that generates a list of links to related posts and popular posts. Also , this plugin can get Visitor Counts (PageView) on posts.",
   "devDependencies": {
