@@ -1,14 +1,19 @@
 {
-    "extends": "eslint:recommended",
+    "extends": "google",
     "parserOptions": {
    		"ecmaVersion": 6
  	},
  	"env" : {
  		"node" : true ,
+ 		"es6": true ,
  		"browser" : false,
  		"mocha" : true
  	},
  	"rules": {
-        "no-console": 0
+        "no-console": 0 ,
+        "semi" : 0 , 
+        "camelcase" : 0 , 
+        "no-multi-spaces" : 0 , 
+        "max-len" : 0 , 
     }
 }
