@@ -1,13 +1,12 @@
 language: node_js
 node_js:
   - "8"
-cache:
-  apt: true
-  directories:
-    - node_modules
 script:
   - npm run eslint
   - npm run test-cov
+
+before_install:
+  - export NODE_ENV=developent
 
 after_script:
   - npm install coveralls
