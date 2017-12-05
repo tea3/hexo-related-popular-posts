@@ -1,3 +1,7 @@
+coverage/
+npm-debug.log
+package-log.json
+
 # windows.gitignore
 Thumbs.db
 ehthumbs.db
