@@ -1,7 +1,7 @@
 {
   "name": "hexo-related-popular-posts",
   "version": "3.0.0",
-  "main": "index",
+  "main": "index.js",
   "scripts": {
     "test-normal": "mocha test/test.js",
     "test": "mocha test/test.js --require intelli-espower-loader",
@@ -26,11 +26,9 @@
     "power-assert": "^1.4.4"
   },
   "description": "A hexo plugin that generates a list of links to related posts and popular posts. Also , this plugin can get Visitor Counts (PageView) on posts.",
-  "devDependencies": {
-    "hexo": "^3.0.0-rc.3"
-  },
   "directories": {
-    "lib": "./lib"
+    "lib": "./lib",
+    "test": "test/"
   },
   "author": {
     "email": "tea3gtinfo@gmail.com",
@@ -64,6 +62,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tea3/hexo-related-popular-posts.git"
+    "url": "https://github.com/tea3/hexo-related-popular-posts"
   }
 }
