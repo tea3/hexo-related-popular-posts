@@ -6,7 +6,8 @@
     "test-normal": "mocha test/test.js",
     "test": "mocha test/test.js --require intelli-espower-loader",
     "test-cov": "istanbul cover --print both _mocha -- test/test.js --require intelli-espower-loader",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "eslint-fix" : "eslint --fix ."
   },
   "dependencies": {
     "columnify": "^1.5.4",
@@ -20,8 +21,9 @@
   },
   "devDependencies": {
     "eslint": "^4.12.0",
-    "istanbul": "^0.4.5",
+    "eslint-config-google": "^0.9.1",
     "intelli-espower-loader": "^1.0.1",
+    "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
     "power-assert": "^1.4.4"
   },

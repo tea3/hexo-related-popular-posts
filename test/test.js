@@ -23,29 +23,29 @@ after( (done) => {
 })
 */
 
-const post = { "path" : "/test.html" }
+const post = {'path': '/test.html'}
 const hexo_sample = {
-	"config" : {
-		"popularPosts" : {
-			"tmp" : {
-				"gaData" : 	[
-					{
-						"path" : "/test.html" ,
-						"pvMeasurementsStartDate": 30 ,
-						"totalPV" : 70 ,
-						"pv" : 10
-					}
-				]
-			}
-		}
-	}
+    'config': {
+        'popularPosts': {
+            'tmp': {
+                'gaData': [
+                    {
+                        'path': '/test.html',
+                        'pvMeasurementsStartDate': 30,
+                        'totalPV': 70,
+                        'pv': 10,
+                    },
+                ],
+            },
+        },
+    },
 }
 
 
-describe('sample test' , () => {
-	describe('1. pv.js test', () => {
+describe('sample test', () => {
+    describe('1. pv.js test', () => {
         it('PV is 70', () => {
-            assert.equal(pv(post , hexo_sample), '70')
+            assert.equal(pv(post, hexo_sample), '70')
         })
     })
 })
