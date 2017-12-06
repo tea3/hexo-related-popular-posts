@@ -1,5 +1,9 @@
 test/
 tmp/
 coverage/
+src/
 *.log
 .travis.yml
+.github
+.eslintrc
+.eslintignore
