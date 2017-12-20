@@ -4,9 +4,13 @@
 
 A hexo plugin that generates a list of links to related posts or popular posts.
 
-[DEMO](https://photo-tea.com/p/tea-plantation-mtfuji/#relatedPosts) | [Wiki](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings) | [Documents](https://photo-tea.com/p/hexo-related-popular-posts/)
+[DEMO](https://photo-tea.com/p/tea-plantation-mtfuji/#relatedPosts) | [Wiki](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings) | [Documents](https://photo-tea.com/p/hexo-related-popular-posts/) | [Releases(Update)](https://github.com/tea3/hexo-related-popular-posts/releases)
 
 ![Screenshot](src/img/hexo-rpp.png)
+
+### Requirements
+
+This plugin supports Hexo v3.2 or later. If you want you install old version , please `npm install hexo-related-popular-posts@2.0.6`
 
 ## Overview
 
@@ -53,7 +57,7 @@ First, add the following `popular_posts( {} , post )` helper tag in template fil
   %>
 ```
 
-Helper tag can set [more option](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#hepler) and [customize the design](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#customize-html) . For detail , please see the wiki.
+Variable name `post` is different depending on theme. Helper tag can set [more option](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#hepler) and [customize the design](https://github.com/tea3/hexo-related-popular-posts/wiki/More-Settings#customize-html) . For detail , please see the wiki.
 
 Also , if you occur `Cannot read property 'tags' of undefined` error , please refer to the follow as.
 
