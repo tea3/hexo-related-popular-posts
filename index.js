@@ -155,10 +155,11 @@ if (cache_path && fs.existsSync(cache_path)) {
     } else {
         util.orverrideTmp([], hexo)
     }
-} else {
-    hexo.config.popularPosts.tmp.isNgwUpdate = false
-    hexo.config.popularPosts.tmp.isGaUpdate = false
 }
+// else {
+//     hexo.config.popularPosts.tmp.isNgwUpdate = false
+//     hexo.config.popularPosts.tmp.isGaUpdate = false
+// }
 
 
 hexo.extend.filter.register('after_init', () => {

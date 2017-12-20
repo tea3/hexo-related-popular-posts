@@ -45,7 +45,7 @@ If you occur `ERROR Plugin load failed:` error or `DTraceProviderBindings.node` 
 
 ### 1. Edit your theme
 
-First, add the following `popular_posts()` helper tag in template file for article. For example , if you use [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) , add a tag [here](https://github.com/hexojs/hexo-theme-landscape/blob/master/layout/_partial/article.ejs#L25).
+First, add the following `popular_posts( {} , post )` helper tag in template file for article. For example , if you use [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape) , add a tag [here](https://github.com/hexojs/hexo-theme-landscape/blob/master/layout/_partial/article.ejs#L25).
 
 ``` ejs
   <%-
