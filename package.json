@@ -1,6 +1,6 @@
 {
   "name": "hexo-related-popular-posts",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "main": "index.js",
   "scripts": {
     "test-normal": "mocha test/test.js",
@@ -10,6 +10,7 @@
     "eslint-fix": "eslint --fix ."
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "columnify": "^1.5.4",
     "ga-analytics": "^0.0.7",
     "hexo-fs": "^0.2.2",
