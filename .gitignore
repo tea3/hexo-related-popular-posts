@@ -1,6 +1,7 @@
 coverage/
 npm-debug.log
 package-log.json
+node_modules/
 
 # windows.gitignore
 Thumbs.db
@@ -27,3 +28,6 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+# Editor
+.vscode
