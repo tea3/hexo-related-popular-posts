@@ -1,6 +1,6 @@
 {
   "name": "hexo-related-popular-posts",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "main": "index.js",
   "scripts": {
     "test-normal": "mocha test/test.js",
