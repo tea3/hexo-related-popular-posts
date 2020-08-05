@@ -16,7 +16,7 @@ For example, if you using prior to hexo v5.0 now, please `npm install hexo-relat
 | hexo version | this plugin version |
 |:---:|:--|
 | v3.2 or later | 2.0.6 |
-| prior to v5.0 | 4.2.0 |
+| prior to v5.0 | 4.0.0 |
 
 
 ## Overview
