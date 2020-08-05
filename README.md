@@ -10,7 +10,14 @@ A hexo plugin that generates a list of links to related posts or popular posts.
 
 ### Requirements
 
-This plugin supports Hexo v3.2 or later. If you want you install old version , please `npm install hexo-related-popular-posts@2.0.6`
+If you are using an older hexo version, please use the follows version.
+For example, if you using prior to hexo v5.0 now, please `npm install hexo-related-popular-posts@4.2.0`.
+
+| hexo version | this plugin version |
+|:---:|:--|
+| v3.2 or later | 2.0.6 |
+| prior to v5.0 | 4.2.0 |
+
 
 ## Overview
 
