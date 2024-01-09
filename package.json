@@ -69,6 +69,6 @@
     "url": "https://github.com/tea3/hexo-related-popular-posts"
   },
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=18.18.2"
   }
 }
