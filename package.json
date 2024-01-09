@@ -3,11 +3,11 @@
   "version": "5.0.1",
   "main": "index.js",
   "scripts": {
-    "test-normal": "mocha test/test.js",
-    "test": "mocha test/test.js --require intelli-espower-loader",
-    "test-cov": "istanbul cover --print both _mocha -- test/test.js --require intelli-espower-loader",
-    "eslint": "eslint .",
-    "eslint-fix": "eslint --fix ."
+    "test-normal": "npx mocha test/test.js",
+    "test": "npx mocha test/test.js --require intelli-espower-loader",
+    "test-cov": "npx istanbul cover --print both _mocha -- test/test.js --require intelli-espower-loader",
+    "eslint": "npx eslint .",
+    "eslint-fix": "npx eslint --fix ."
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
