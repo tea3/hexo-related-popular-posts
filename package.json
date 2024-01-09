@@ -3,31 +3,31 @@
   "version": "5.0.1",
   "main": "index.js",
   "scripts": {
-    "test-normal": "mocha test/test.js",
-    "test": "mocha test/test.js --require intelli-espower-loader",
-    "test-cov": "istanbul cover --print both _mocha -- test/test.js --require intelli-espower-loader",
-    "eslint": "eslint .",
-    "eslint-fix": "eslint --fix ."
+    "test-normal": "npx mocha test/test.js",
+    "test": "npx mocha test/test.js --require intelli-espower-loader",
+    "test-cov": "npx istanbul cover --print both _mocha -- test/test.js --require intelli-espower-loader",
+    "eslint": "npx eslint .",
+    "eslint-fix": "npx eslint --fix ."
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "columnify": "^1.5.4",
+    "cheerio": "^1.0.0-rc.12",
+    "columnify": "^1.6.0",
     "ga-analytics": "^0.0.7",
-    "hexo-fs": "^0.2.2",
-    "mkdirp": "^0.5.1",
-    "moment": "^2.19.1",
-    "kuromoji": "^0.1.1",
-    "hasha": "^3.0.0",
-    "log-util": "^1.2.0"
+    "hexo-fs": "^4.1.1",
+    "mkdirp": "^3.0.1",
+    "moment": "^2.30.1",
+    "kuromoji": "^0.1.2",
+    "hasha": "^5.2.2",
+    "log-util": "^2.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.12.0",
-    "eslint-config-google": "^0.9.1",
-    "hexo": "^5.0.0",
-    "intelli-espower-loader": "^1.0.1",
+    "eslint": "^8.56.0",
+    "eslint-config-google": "^0.14.0",
+    "hexo": "^7.0.0",
+    "intelli-espower-loader": "^1.1.0",
     "istanbul": "^0.4.5",
-    "mocha": "^4.0.1",
-    "power-assert": "^1.4.4"
+    "mocha": "^10.2.0",
+    "power-assert": "^1.6.1"
   },
   "description": "A hexo plugin that generates a list of links to related posts and popular posts. Also , this plugin can get Visitor Counts (PageView) on posts.",
   "directories": {
@@ -69,6 +69,6 @@
     "url": "https://github.com/tea3/hexo-related-popular-posts"
   },
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=18.18.2"
   }
 }
